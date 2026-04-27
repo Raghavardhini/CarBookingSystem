@@ -31,7 +31,7 @@ public class CabBookingSystem {
     static User currentUser = null;
 
     public static void main(String[] args) {
-        // Sample data
+        // sample data
         cabs.add(new Cab(1, "Ramesh", "Swift Dzire", true));
         cabs.add(new Cab(2, "Suresh", "Innova", true));
         cabs.add(new Cab(3, "Vijay", "Etios", true));
@@ -44,7 +44,7 @@ public class CabBookingSystem {
             System.out.println("3. Exit");
             System.out.print("Enter choice: ");
             choice = sc.nextInt();
-            sc.nextLine(); // consume newline
+            sc.nextLine();
 
             switch (choice) {
                 case 1 -> register();
@@ -61,7 +61,7 @@ public class CabBookingSystem {
         System.out.print("Enter password: ");
         String pass = sc.nextLine();
         users.add(new User(uname, pass));
-        System.out.println("✅ Registration successful! Please login to continue.");
+        System.out.println("Registration successful! Please login to continue.");
     }
 
     static void login() {
@@ -78,7 +78,7 @@ public class CabBookingSystem {
                 return;
             }
         }
-        System.out.println("❌ Invalid credentials. Please try again.");
+        System.out.println("Invalid credentials. Please try again.");
     }
 
     static void bookingMenu() {
@@ -96,7 +96,7 @@ public class CabBookingSystem {
                 case 1 -> viewAvailableCabs();
                 case 2 -> bookCab();
                 case 3 -> {
-                    System.out.println("🚗 Logged out successfully.");
+                    System.out.println("Logged out successfully.");
                     currentUser = null;
                 }
                 default -> System.out.println("Invalid choice!");
@@ -128,18 +128,18 @@ public class CabBookingSystem {
 
         for (Cab c : cabs) {
             if (c.cabId == id && c.isAvailable) {
-                double fare = distance * 15; // ₹15 per km
+                double fare = distance * 15; 
                 System.out.println("\nBooking Details:");
                 System.out.println("Pickup: " + pickup);
                 System.out.println("Drop: " + drop);
                 System.out.println("Distance: " + distance + " km");
                 System.out.println("Fare: ₹" + fare);
                 System.out.println("Driver: " + c.driverName + " (" + c.carModel + ")");
-                System.out.println("✅ Cab booked successfully!");
+                System.out.println(" Cab booked successfully!");
                 c.isAvailable = false;
                 return;
             }
         }
-        System.out.println("❌ Invalid Cab ID or Cab not available.");
+        System.out.println("Invalid Cab ID or Cab not available.");
     }
 }
